@@ -1,15 +1,16 @@
+
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import logo1 from '../../public/bitcoin.png';
 import { Triangle, ChevronDoubleRightIcon } from 'lucide-react';
+import Chart from "./BitcoinPriceChart";
+import Start from "./Start";
+
 const BitcoinPrice = () => {
     const [price, setPrice] = useState(null);
     const [change, setChange] = useState(null);
 
-    const handleItemClick = (item) => {
-        setSelectedItem(item);
-    };
     useEffect(() => {
         const fetchBitcoinPrice = async () => {
             try {
@@ -31,7 +32,7 @@ const BitcoinPrice = () => {
 
     return (
         <>
-            <div className='pt-20 bg-[#EFF2F5]'>
+            <div className='pt-20 bg-[#EFF2F5] text-black'>
                 <div className='flex px-10 md:px-10 items-center mb-5 gap-1'><p className='text-[#546A77]'>CryptoCurrencies </p><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 text-[#546A77]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
                 </svg> Bitcoin</div>
@@ -78,7 +79,12 @@ const BitcoinPrice = () => {
                                 <p className="text-md">₹{price?.inr.toFixed(2)}</p>
                             </div>
                             <hr />
-
+                            <div>
+                                <p className='font-semibold'>Bitcoin Price Chart (USD) </p>
+                            </div>
+                            <div className="w-full mx-auto h-[70vh]">
+                                <Chart />
+                            </div>
                         </div>
 
 
@@ -86,9 +92,11 @@ const BitcoinPrice = () => {
 
 
 
+                    </div>
+                    <div className='col-span-10 md:col-span-3'>
+                        <Start />
 
                     </div>
-
                 </div>
             </div>
 
@@ -98,3 +106,4 @@ const BitcoinPrice = () => {
 
 
 export default BitcoinPrice;
+
