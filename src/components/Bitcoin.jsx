@@ -1,4 +1,5 @@
 
+
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
@@ -6,6 +7,7 @@ import logo1 from '../../public/bitcoin.png';
 import { Triangle, ChevronDoubleRightIcon } from 'lucide-react';
 import Chart from "./BitcoinPriceChart";
 import Start from "./Start";
+import Top3TrendCoins from "./Top3TrendCoins";
 
 const BitcoinPrice = () => {
     const [price, setPrice] = useState(null);
@@ -92,10 +94,11 @@ const BitcoinPrice = () => {
 
 
 
+
                     </div>
                     <div className='col-span-10 md:col-span-3'>
                         <Start />
-
+                        <Top3TrendCoins />
                     </div>
                 </div>
             </div>
