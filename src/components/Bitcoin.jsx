@@ -9,10 +9,19 @@ import Chart from "./BitcoinPriceChart";
 import Start from "./Start";
 import Top3TrendCoins from "./Top3TrendCoins";
 
+import Fundamentals from "@/components/Fundamentals";
+import About from "@/components/About";
+import Team from "@/components/Team";
+import Tokenomics from "@/components/Tokenomics";
+import Sentiment from "@/components/Sentiment";
 const BitcoinPrice = () => {
     const [price, setPrice] = useState(null);
     const [change, setChange] = useState(null);
+    const [selectedItem, setSelectedItem] = useState('performance');
 
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
     useEffect(() => {
         const fetchBitcoinPrice = async () => {
             try {
@@ -34,7 +43,7 @@ const BitcoinPrice = () => {
 
     return (
         <>
-            <div className='pt-20 bg-[#EFF2F5] text-black'>
+            <div className='pt-20 bg-[#EFF2F5]'>
                 <div className='flex px-10 md:px-10 items-center mb-5 gap-1'><p className='text-[#546A77]'>CryptoCurrencies </p><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 text-[#546A77]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
                 </svg> Bitcoin</div>
@@ -89,9 +98,24 @@ const BitcoinPrice = () => {
                             </div>
                         </div>
 
+                        <div className='flex gap-4 text-nowrap my-16 border-b-2 overflow-scroll text-md w-full text-center md:grid md:grid-cols-6'>
+                            <div><button className={`pb-2 text-nowrap  ${selectedItem === 'performance' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('performance')} >Overview</button></div>
+
+                            <div><button className={`pb-2 text-nowrap ${selectedItem === 'about' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('about')}>New Insights</button></div>
+                            <div><button className={`pb-2 text-nowrap ${selectedItem === 'sentiment' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('sentiment')}>Sentiments</button></div>
+                            <div><button className={`pb-2  text-nowrap ${selectedItem === 'fundamentals' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('fundamentals')}>Fundamentals</button></div>
+                            <div><button className={`pb-2 text-nowrap ${selectedItem === 'team' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('team')}>Team</button></div>
+                            <div><button className={`pb-2 text-nowrap ${selectedItem === 'tokenomics' ? 'border-b-4 border-b-blue-600' : ''}`} onClick={() => setSelectedItem('tokenomics')}>Tokenomics</button></div>
+
+                        </div>
 
 
-
+                        {selectedItem === 'performance' && (<Fundamentals />)}
+                        {selectedItem === 'sentiment' && (<Sentiment />)}
+                        {selectedItem === 'about' && (<About />)}
+                        {selectedItem === 'fundamentals' && (<Fundamentals />)}
+                        {selectedItem === 'tokenomics' && (<Tokenomics />)}
+                        {selectedItem === 'team' && (<Team />)}
 
 
 
