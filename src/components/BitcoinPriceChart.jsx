@@ -2,10 +2,9 @@
 import Image from "next/image";
 import logo1 from '../../public/logo1.jpg';
 import React, { useState } from 'react';
-import { Bars3Icon, XMarkIcon, } from '@heroicons/react/24/solid'
+import { BookOpenIcon, Bars3Icon, XMarkIcon, } from '@heroicons/react/24/solid'
 
 const Header = () => {
-
     let Links = [
         { name: "Crypto Taxes", link: "/" },
         { name: "Free Tools", link: "/" },
