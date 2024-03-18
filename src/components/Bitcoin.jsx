@@ -1,5 +1,4 @@
 
-
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
@@ -8,7 +7,7 @@ import { Triangle, ChevronDoubleRightIcon } from 'lucide-react';
 import Chart from "./BitcoinPriceChart";
 import Start from "./Start";
 import Top3TrendCoins from "./Top3TrendCoins";
-
+import TrendCoins from "@/components/TrendCoins";
 import Fundamentals from "@/components/Fundamentals";
 import About from "@/components/About";
 import Team from "@/components/Team";
@@ -117,6 +116,17 @@ const BitcoinPrice = () => {
                         {selectedItem === 'tokenomics' && (<Tokenomics />)}
                         {selectedItem === 'team' && (<Team />)}
 
+                        <div className="w-[86vw] md:w-[95vw] my-10 mx-auto bg-white flex  flex-col py-20 gap-10 justify-center">
+
+                            <div className="w-full px-10">
+                                <h1 className="font-bold text-2xl">You may also like </h1>
+                                <br />
+                                <TrendCoins /></div>
+
+                            <div className='px-10'>
+                                <h1 className="font-bold text-2xl">Trending Coins </h1>
+                                <br /> <TrendCoins /></div>
+                        </div>
 
 
                     </div>
@@ -133,4 +143,3 @@ const BitcoinPrice = () => {
 
 
 export default BitcoinPrice;
-
