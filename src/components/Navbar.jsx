@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon, } from '@heroicons/react/24/solid'
 
 const Header = () => {
+    console.log("Navbar");
     let Links = [
         { name: "Crypto Taxes", link: "/" },
         { name: "Free Tools", link: "/" },
